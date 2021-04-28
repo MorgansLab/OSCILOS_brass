@@ -1,0 +1,98 @@
+%% Template Config file
+
+%% Config options
+% Every supported option is listed here
+% Optional options are set to their default values
+% Mandatory options are indicated by MANDATORY
+
+MEAN_FLOW
+p1              101325.0    % Mean pressure at inlet [Pa] MANDATORY
+T1              293.0       % Mean Temperature at inlet [K] MANDATORY
+choice_M1_u1    1           % Choice between Mach number (value: 1) or mean flow velocity (value: 2) at the inlet
+M1_u1           0.0001      % Value of M1 [-] or u1 [m/s] as specified by choice_M1_u1 MANDATORY
+
+SCAN_RANGE
+min_freq        0           % Minimum frequency [Hz]
+max_freq        1000        % Maximum frequency [Hz]
+number_freq     20          % Number of frequencies
+min_gr          -200        % Minimum growth rate [1/s]
+max_gr          200         % Maximum growth rate [1/s]
+number_gr       10          % Number of growth rates
+
+INLET_BC
+inlet_type      1    % Inlet Boundary Condition type ID - see User Guide MANDATORY
+inlet_param1    0    % Inlet BC parameter 1 - see docs
+inlet_param2    0    % Inlet BC parameter 2 - see docs
+inlet_param3    0    % Inlet BC parameter 3 - see docs
+
+OUTLET_BC
+outlet_type     1    % Outlet Boundary Condition type ID - see User Guide MANDATORY
+outlet_param1   0    % Outlet BC parameter 1 - see docs
+outlet_param2   0    % Outlet BC parameter 2 - see docs
+outlet_param3   0    % Outlet BC parameter 3 - see docs
+
+SCAN_RANGE
+min_freq        0       % Minimum frequency [Hz]
+max_freq        1000    % Maximum frequency [Hz]
+number_freq     20      % Number of frequencies
+min_gr          -200    % Minimum growth rate [1/s]
+max_gr          200     % Maximum growth rate [1/s]
+number_gr       10      % Number of growth rates
+
+PLOT_CONFIG
+geom_plot       TRUE    % Draw geometry plot
+mf_plot         TRUE    % Draw mean flow plot
+bc_plot         TRUE    % Draw boundary conditions plot
+contour_plot    TRUE    % Draw eigenspace contour map (considerably slower)
+efp_plot        TRUE    % Draw Equivalent Fundamental Pitch plot
+plot_modes      5       % Number of mode shapes to draw
+save_figs       TRUE    % Save .fig files - only plots which are drawn are saved (slow)
+save_pdfs       TRUE    % Save .pdf files - only plots which are drawn are saved (slower)
+small_plots     FALSE   % Reduce plot size to accommodate smaller screens e.g. laptop screens
+
+OUTPUT_CONFIG
+run_name                % Name of output subfolder - leave blank to write directly to output folder
+warn_ovwrt      TRUE    % Warning dialog if run_name directory already exists
+cl_out          TRUE    % Output progress updates to command line (useful if plots turned off)
+log_out         TRUE    % Output progress updates to log file
+fin_msg         TRUE    % Display messagebox on finishing calculation
+wait_bars       TRUE    % Display waitbars during eigenvalue and contour plot calculations
+no_popups       FALSE   % Disable all popups and plots (considerably faster)
+
+FILENAMES
+geom_filename   Geometry.txt    % Can be used to specify geometry file name
+log_filename    Logfile.txt     % Can be used to specify log file name
+eig_filename    Eigenvalues.txt % Can be used to specify eigenvalue list file name
+
+%% Additional Boundary Condition Data
+
+INLET_POLYNOMIAL_COEFFICIENTS
+s^N     s^(N-1) s^(2)    s       1
+1e-14   2e-10   -1e-8    5e-3    0.5
+1.5e-14 1e-10   5e-7    -5e-3    0.6
+
+OUTLET_POLYNOMIAL_COEFFICIENTS
+1e-7    2e-4    1
+2e-7    1e-4    1
+
+INLET_GAIN_PHASE_DATA
+Frequency[Hz]   Gain[-]     Phase[rad_°(param1)]
+0               1           180
+200             1.1         170
+500             1.3         140
+1000            1.5         90
+
+OUTLET_GAIN_PHASE_DATA
+Frequency[Hz]    Gain[-]     Phase[rad_°(param1)]
+0               1           -180
+200             0.9         -170
+500             0.7         -140
+1000            0.5         -90
+
+INLET_GAIN_PHASE_FUNCTIONS
+@(f) 1 + f.^2./10e5 % Gain
+@(f) 135 - 0.5*90*cos(f./1000.*pi) % Phase
+
+OUTLET_GAIN_PHASE_FUNCTIONS
+@(f) 2 - f.^2./10e5 % Gain
+@(f) 135 + 0.5*90*cos(f./1000.*pi) % Phase

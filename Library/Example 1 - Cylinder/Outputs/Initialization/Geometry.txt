@@ -1,0 +1,4 @@
+x[m]        r[m]        SectionIndex    TubeIndex
+0           0.05        0               0
+0.6315      0.05        0               0
+1.263       0.05        0               0

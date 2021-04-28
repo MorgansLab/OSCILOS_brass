@@ -1,0 +1,12 @@
+%% Minimum Config file for cylinder example
+
+MEAN_FLOW
+p1              101325.0	% Mean pressure at inlet [Pa]
+T1              298.2		% Mean Temperature at inlet [K]
+M1_u1           1e-5		% Value of M1 [-]
+
+INLET_BC
+inlet_type      1   % Pressure-release inlet boundary condition
+
+OUTLET_BC
+outlet_type     1  % Pressure-release outlet boundary condition

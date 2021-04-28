@@ -1,0 +1,15 @@
+10-09-2020 17:19:26.079  OSCILOS_brass version 5
+10-09-2020 17:19:26.208  	Parsing geometry file C:\Users\amacl\OneDrive - Imperial College London\UROP 2020\OSCILOS\V5_OSCILOS_brass\Inputs\Geometry.txt
+10-09-2020 17:19:31.573  		3 sections listed, 3 generated
+10-09-2020 17:19:31.623  	Calculating mean flow parameters
+10-09-2020 17:19:33.212  	Calculating boundary conditions
+10-09-2020 17:19:34.605  	Calculating eigenvalues
+10-09-2020 17:19:36.425  	Calculating contour plot values
+10-09-2020 17:19:43.792  	Plotting mode shapes:
+10-09-2020 17:19:43.803  		mode 1
+10-09-2020 17:19:45.331  		mode 2
+10-09-2020 17:19:46.431  		mode 3
+10-09-2020 17:19:47.546  		mode 4
+10-09-2020 17:19:48.572  		mode 5
+10-09-2020 17:19:49.762  Calculation completed in 27.99 seconds
+10-09-2020 17:19:49.777  	Eigenvalues saved to C:\Users\amacl\OneDrive - Imperial College London\UROP 2020\OSCILOS\V5_OSCILOS_brass\Outputs\Results\Eigenvalues.txt

@@ -1,0 +1,13 @@
+%% Minimum Config file for exponential horn example
+
+MEAN_FLOW
+p1              101325.0	% Mean pressure at inlet [Pa]
+T1              298.2		% Mean Temperature at inlet [K]
+choice_M1_u1    2           % Specify u1
+M1_u1           0.5         % Value of u1 [m/s]
+
+INLET_BC
+inlet_type      2           % Closed-end inlet BC
+
+OUTLET_BC
+outlet_type     11          % Levine-Schwinger outlet BC
